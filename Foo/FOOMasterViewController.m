@@ -46,13 +46,13 @@
     return cell;
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([[segue identifier] isEqualToString:@"showDetail"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        FOOShow *show = self.shows[indexPath.row];
-        [[segue destinationViewController] setDetailItem:show];
-    }
+    FOOShow *show = self.shows[indexPath.row];
+    NSLog(@"Detail show: %@.", show.name);
+    FOODetailViewController *controller = [[FOODetailViewController alloc] init];
+    controller.detailItem = show;
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 @end
