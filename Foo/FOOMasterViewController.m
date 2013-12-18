@@ -55,4 +55,10 @@
     [self.navigationController pushViewController:controller animated:YES];
 }
 
+-(void)setShows:(NSArray *)shows
+{
+    _shows = shows;
+    [self.tableView reloadData];
+}
+
 @end
