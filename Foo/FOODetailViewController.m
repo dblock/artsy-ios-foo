@@ -31,15 +31,29 @@
     // Update the user interface for the detail item.
 
     if (self.detailItem) {
-        self.detailDescriptionLabel.text = [self.detailItem description];
+        self.detailDescriptionLabel.text = [self.detailItem name];
     }
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    [self adjustColor];
+    [self createDetailLabel];
     [self configureView];
+}
+
+- (void) adjustColor
+{
+    self.view.backgroundColor = [UIColor whiteColor];
+}
+
+- (void) createDetailLabel
+{
+    UILabel * label = [[UILabel alloc] initWithFrame:self.view.bounds];
+    label.textAlignment = NSTextAlignmentCenter;
+    self.detailDescriptionLabel = label;
+    [self.view addSubview:label];
 }
 
 - (void)didReceiveMemoryWarning
