@@ -10,4 +10,6 @@
 
 @interface FOOMasterViewController : UITableViewController
 
+@property(nonatomic, strong) NSArray *shows;
+
 @end

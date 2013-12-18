@@ -8,15 +8,25 @@
 
 #import "FOOAppDelegate.h"
 #import "FOOMasterViewController.h"
+#import "FOOShow.h"
 
 @implementation FOOAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    FOOMasterViewController * masterViewController = [[FOOMasterViewController alloc] init];
-    UINavigationController * navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
+    NSMutableArray *shows = [NSMutableArray array];
+    
+    for(id name in @[ @"one", @"two", @"three" ]) {
+        FOOShow *show = [[FOOShow alloc] init];
+        show.name = name;
+        [shows addObject:show];
+    }
+    
+    FOOMasterViewController *masterViewController = [[FOOMasterViewController alloc] init];
+    masterViewController.shows = shows;
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
     CGRect frame = [[UIScreen mainScreen] bounds];
-    UIWindow * window = [[UIWindow alloc] initWithFrame:frame];
+    UIWindow *window = [[UIWindow alloc] initWithFrame:frame];
     window.rootViewController = navigationController;
     [window makeKeyAndVisible];
     self.window = window;

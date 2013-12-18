@@ -21,6 +21,7 @@
 		3CC6DA1F18623C6500EDD733 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CC6D9FE18623C6500EDD733 /* UIKit.framework */; };
 		3CC6DA2718623C6500EDD733 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3CC6DA2518623C6500EDD733 /* InfoPlist.strings */; };
 		3CC6DA2918623C6500EDD733 /* FooTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6DA2818623C6500EDD733 /* FooTests.m */; };
+		3CC6DA34186247E700EDD733 /* FOOShow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6DA33186247E700EDD733 /* FOOShow.m */; };
 		B44233FB6D2449379ABB1AF3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A672DED9B344CE789C30FFD /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,8 @@
 		3CC6DA2418623C6500EDD733 /* FooTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FooTests-Info.plist"; sourceTree = "<group>"; };
 		3CC6DA2618623C6500EDD733 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3CC6DA2818623C6500EDD733 /* FooTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FooTests.m; sourceTree = "<group>"; };
+		3CC6DA32186247E700EDD733 /* FOOShow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOOShow.h; sourceTree = "<group>"; };
+		3CC6DA33186247E700EDD733 /* FOOShow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOOShow.m; sourceTree = "<group>"; };
 		44BD076894A348868E4B064C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		9A672DED9B344CE789C30FFD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -127,6 +130,8 @@
 				3CC6DA1318623C6500EDD733 /* FOODetailViewController.m */,
 				3CC6DA1518623C6500EDD733 /* Images.xcassets */,
 				3CC6DA0118623C6500EDD733 /* Supporting Files */,
+				3CC6DA32186247E700EDD733 /* FOOShow.h */,
+				3CC6DA33186247E700EDD733 /* FOOShow.m */,
 			);
 			path = Foo;
 			sourceTree = "<group>";
@@ -296,6 +301,7 @@
 				3CC6DA0718623C6500EDD733 /* main.m in Sources */,
 				3CC6DA1418623C6500EDD733 /* FOODetailViewController.m in Sources */,
 				3CC6DA0B18623C6500EDD733 /* FOOAppDelegate.m in Sources */,
+				3CC6DA34186247E700EDD733 /* FOOShow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
