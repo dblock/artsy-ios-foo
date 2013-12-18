@@ -7,12 +7,19 @@
 //
 
 #import "FOOAppDelegate.h"
+#import "FOOMasterViewController.h"
 
 @implementation FOOAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    FOOMasterViewController * masterViewController = [[FOOMasterViewController alloc] init];
+    UINavigationController * navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
+    CGRect frame = [[UIScreen mainScreen] bounds];
+    UIWindow * window = [[UIWindow alloc] initWithFrame:frame];
+    window.rootViewController = navigationController;
+    [window makeKeyAndVisible];
+    self.window = window;
     return YES;
 }
 							
