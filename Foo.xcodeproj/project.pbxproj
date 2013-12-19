@@ -23,6 +23,8 @@
 		3CC6DA2918623C6500EDD733 /* FooTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6DA2818623C6500EDD733 /* FooTests.m */; };
 		3CC6DA34186247E700EDD733 /* FOOShow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6DA33186247E700EDD733 /* FOOShow.m */; };
 		3CC6DA371863611D00EDD733 /* ARAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6DA361863611D00EDD733 /* ARAPIClient.m */; };
+		3CC6DA391863653A00EDD733 /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3CC6DA381863653A00EDD733 /* Settings.plist */; };
+		3CC6DA3C186365B500EDD733 /* FOOSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6DA3B186365B500EDD733 /* FOOSettings.m */; };
 		B44233FB6D2449379ABB1AF3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A672DED9B344CE789C30FFD /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +63,9 @@
 		3CC6DA33186247E700EDD733 /* FOOShow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOOShow.m; sourceTree = "<group>"; };
 		3CC6DA351863611D00EDD733 /* ARAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARAPIClient.h; sourceTree = "<group>"; };
 		3CC6DA361863611D00EDD733 /* ARAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARAPIClient.m; sourceTree = "<group>"; };
+		3CC6DA381863653A00EDD733 /* Settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
+		3CC6DA3A186365B500EDD733 /* FOOSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOOSettings.h; sourceTree = "<group>"; };
+		3CC6DA3B186365B500EDD733 /* FOOSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOOSettings.m; sourceTree = "<group>"; };
 		44BD076894A348868E4B064C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		9A672DED9B344CE789C30FFD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -137,6 +142,9 @@
 				3CC6DA33186247E700EDD733 /* FOOShow.m */,
 				3CC6DA351863611D00EDD733 /* ARAPIClient.h */,
 				3CC6DA361863611D00EDD733 /* ARAPIClient.m */,
+				3CC6DA381863653A00EDD733 /* Settings.plist */,
+				3CC6DA3A186365B500EDD733 /* FOOSettings.h */,
+				3CC6DA3B186365B500EDD733 /* FOOSettings.m */,
 			);
 			path = Foo;
 			sourceTree = "<group>";
@@ -251,6 +259,7 @@
 			files = (
 				3CC6DA1618623C6500EDD733 /* Images.xcassets in Resources */,
 				3CC6DA0518623C6500EDD733 /* InfoPlist.strings in Resources */,
+				3CC6DA391863653A00EDD733 /* Settings.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +314,7 @@
 				3CC6DA1118623C6500EDD733 /* FOOMasterViewController.m in Sources */,
 				3CC6DA0718623C6500EDD733 /* main.m in Sources */,
 				3CC6DA1418623C6500EDD733 /* FOODetailViewController.m in Sources */,
+				3CC6DA3C186365B500EDD733 /* FOOSettings.m in Sources */,
 				3CC6DA0B18623C6500EDD733 /* FOOAppDelegate.m in Sources */,
 				3CC6DA371863611D00EDD733 /* ARAPIClient.m in Sources */,
 				3CC6DA34186247E700EDD733 /* FOOShow.m in Sources */,

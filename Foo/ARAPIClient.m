@@ -9,6 +9,7 @@
 #import "ARAPIClient.h"
 #import "AFHTTPClient.h"
 #import "AFJSONRequestOperation.h"
+#import "FOOSettings.h"
 #import "FooShow.h"
 
 @implementation ARAPIClient
@@ -27,7 +28,10 @@
 - (void) getXappToken:(void(^)())success
 {
     __weak typeof(self) weakSelf = self;
-    NSDictionary *clientParams = @{@"client_id": @"fc8f3665cfca82d588ed", @"client_secret": @"df6b407fd97e3c5859d88f6e759d686c"};
+    NSDictionary *clientParams = @{
+        @"client_id":[[FOOSettings sharedSettings] objectForKey:@"client_id"],
+        @"client_secret":[[FOOSettings sharedSettings] objectForKey:@"client_secret"]
+    };
     NSURLRequest *request = [self requestWithMethod:@"GET" path:@"/api/v1/xapp_token" parameters:clientParams];
     AFJSONRequestOperation *operation = [[AFJSONRequestOperation alloc] initWithRequest:request];
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
