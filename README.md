@@ -7,6 +7,7 @@ A simple iOS client application talking to the Artsy API.
 
 ```
 brew install xctool
+gem install cocoapods
 make all
 ```
 

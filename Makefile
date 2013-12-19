@@ -2,6 +2,10 @@ WORKSPACE = Foo.xcworkspace
 CONFIGURATION = Debug
 SCHEME = Foo
 
+.PHONY: build clean test pods all
+
+all: pods clean build test
+
 build:
 	xctool -workspace $(WORKSPACE) -scheme $(SCHEME) -configuration $(CONFIGURATION) build
 
@@ -14,4 +18,3 @@ test:
 pods:
 	pod install
 
-all: clean build test
