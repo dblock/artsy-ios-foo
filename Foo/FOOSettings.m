@@ -34,13 +34,9 @@
     return self;
 }
 
--(id) forwardingTargetForSelector: (SEL) sel
+-(id)objectForKey:(id)key
 {
-    if (sel != @selector(init)) {
-        return self.settings;
-    } else {
-        return self;
-    }
+    return [self.settings objectForKey:key];
 }
 
 @end
