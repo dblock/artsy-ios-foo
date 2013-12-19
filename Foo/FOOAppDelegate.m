@@ -9,17 +9,21 @@
 #import "FOOAppDelegate.h"
 #import "FOOMasterViewController.h"
 #import "FOOShow.h"
-#import "AFHTTPClient.h"
-#import "AFJSONRequestOperation.h"
+#import "ARApiClient.h"
 
 @implementation FOOAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     FOOMasterViewController *masterViewController = [[FOOMasterViewController alloc] init];
-    [self fetchShows:^(NSArray *shows) {
-        masterViewController.shows = shows;
+
+    ARAPIClient *client = [ARAPIClient sharedClient];
+    [client getXappToken:^{
+        [client getShows:^(NSArray * shows) {
+            masterViewController.shows = shows;
+        }];
     }];
+    
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
     CGRect frame = [[UIScreen mainScreen] bounds];
     UIWindow *window = [[UIWindow alloc] initWithFrame:frame];
@@ -27,60 +31,6 @@
     [window makeKeyAndVisible];
     self.window = window;
     return YES;
-}
-
-- (void)getXappToken :(void(^)(NSString *token))completion
-{
-    NSURL * baseURL = [[NSURL alloc] initWithString:@"https://artsy.net"];
-    
-    NSDictionary *clientParams = @{
-      @"client_id": @"fc8f3665cfca82d588ed",
-      @"client_secret": @"df6b407fd97e3c5859d88f6e759d686c"
-    };
-    
-    AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:baseURL];
-    NSURLRequest *request = [client requestWithMethod:@"GET" path:@"/api/v1/xapp_token" parameters:clientParams];
-    AFJSONRequestOperation *operation = [[AFJSONRequestOperation alloc] initWithRequest:request];
-    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"Response: %@", responseObject);
-        if (completion) completion(responseObject[@"xapp_token"]);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-        // TODO: show a UIAlertView
-        exit(-1);
-    }];
-    [operation start];
-}
-
-- (void)fetchShows :(void(^)(NSArray *shows))completion
-{
-    [self getXappToken:^(NSString *token) {
-        NSLog(@"Token: %@", token);
-
-        NSURL * baseURL = [[NSURL alloc] initWithString:@"https://artsy.net"];
-        AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:baseURL];
-        NSDictionary *clientParams = @{
-          @"xapp_token": token,
-          @"size": @(5)
-        };
-        NSURLRequest *request = [client requestWithMethod:@"GET" path:@"/api/v1/shows" parameters:clientParams];
-        AFJSONRequestOperation *operation = [[AFJSONRequestOperation alloc] initWithRequest:request];
-        [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-            NSLog(@"Response: %@", responseObject);
-            NSMutableArray * shows = [NSMutableArray array];
-            for (id object in responseObject) {
-                FOOShow * show = [[FOOShow alloc] init];
-                show.name = object[@"name"];
-                [shows addObject:show];
-            }
-            if (completion) completion(shows);
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            NSLog(@"Error: %@", error);
-            // TODO: show a UIAlertView
-            exit(-1);
-        }];
-        [operation start];
-    }];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
